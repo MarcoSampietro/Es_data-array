@@ -1,3 +1,9 @@
-<p>{{ product.name }}</p>
-<p>{{ product.price }}</p>
-<p>{{ product.description }}</p>
+<div *ngIf="product; else noProductSelected">
+    <h2>{{ product.name }}</h2>
+    <p>Prezzo: {{ product.price }}€</p>
+    <p>{{ product.description }}</p>
+  </div>
+  <ng-template #noProductSelected>
+    <p>Seleziona un prodotto per vedere i dettagli.</p>
+  </ng-template>
+  
