@@ -1,9 +1,19 @@
-<div *ngIf="product; else noProductSelected">
-    <h2>{{ product.name }}</h2>
-    <p>Prezzo: {{ product.price }}€</p>
-    <p>{{ product.description }}</p>
-  </div>
+<div class="card mt-4 border-1 rounded">
+  <ng-container *ngIf="product; else noProductSelected">
+    <div class="card-header bg-primary text-white">
+      <h2 class="card-title m-0">{{ product.name }}</h2>
+    </div>
+    <div class="card-body">
+      <h5 class="card-subtitle mb-3">Dettaglio Prodotto</h5>
+      <p><strong>Nome:</strong> {{ product.name }}</p>
+      <p><strong>Prezzo:</strong> {{ product.price }}€</p>
+      <p><strong>Descrizione:</strong> {{ product.description }}</p>
+    </div>
+  </ng-container>
+
   <ng-template #noProductSelected>
-    <p>Seleziona un prodotto per vedere i dettagli.</p>
+    <div class="card-body text-center text-muted">
+      <p>Seleziona un prodotto per vedere i dettagli.</p>
+    </div>
   </ng-template>
-  
+</div>

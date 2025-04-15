@@ -1,16 +1,41 @@
-<h1>Prodotti</h1>
-<ul>
-    <p *ngFor="let product of products; let i = index">
-      {{ product.name }} - {{ product.price }}€
-      <button (click)="selectProduct(product)">Dettagli</button>
-      <button (click)="deleteProduct(i)">Elimina</button>
-    </p>
-</ul>
-<app-product-detail *ngIf="selectedProduct" [product]="selectedProduct"></app-product-detail>
+<h1 class="p-3">Prodotti</h1>
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let product of products; let i = index">
+      <div class="card h-100 text-center">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">
+            Prezzo: <strong>{{ product.price }}€</strong>
+          </p>
+          <div class="d-flex justify-content-center gap-2">
+            <button class="btn btn-primary btn-sm" (click)="selectProduct(product)">Dettagli</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteProduct(i)">Elimina</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<form (ngSubmit)="onSubmit()">
-    <input [(ngModel)]="newProduct.name" name="name" placeholder="Nome del prodotto" required />
-    <input [(ngModel)]="newProduct.price" name="price" type="number" placeholder="Prezzo" required />
-    <input [(ngModel)]="newProduct.description" name="description" placeholder="Descrizione" required />
-    <button type="submit">Aggiungi Prodotto</button>
-</form>
+  <div class="mt-4" *ngIf="selectedProduct">
+    <app-product-detail [product]="selectedProduct"></app-product-detail>
+  </div>
+
+  <div class="mt-5">
+    <h4>Aggiungi un nuovo prodotto</h4>
+    <form (ngSubmit)="onSubmit()" class="row g-3">
+      <div class="col-md-4">
+        <input [(ngModel)]="newProduct.name" name="name" placeholder="Nome del prodotto" class="form-control" required/>
+      </div>
+      <div class="col-md-3">
+        <input [(ngModel)]="newProduct.price" name="price" type="number" class="form-control" placeholder="Prezzo" required/>
+      </div>
+      <div class="col-md-5">
+        <input [(ngModel)]="newProduct.description" name="description" placeholder="Descrizione" class="form-control" required/>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-success">Aggiungi Prodotto</button>
+      </div>
+    </form>
+  </div>
+</div>

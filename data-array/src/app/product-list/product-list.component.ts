@@ -17,11 +17,15 @@ interface Product {
 })
 export class ProductListComponent {
   products: Product[] = [
-    { name: 'Latte', price: 10, description: 'latte scremato' },
-    { name: 'Pane', price: 2, description: 'Pane in cassetta' },
-    { name: 'Biscotti', price: 30, description: 'Biscotti con goccie di cioccolato' },
-    { name: 'Cereali', price: 8, description: 'Cereali barchette' },
-    { name: 'Mela', price: 1, description: 'Mela rossa' }
+    { name: 'Latte', price: 2, description: 'Latte scremato da 1 litro' },
+    { name: 'Pane', price: 1.5, description: 'Pane in cassetta fresco' },
+    { name: 'Biscotti', price: 4, description: 'Biscotti con gocce di cioccolato' },
+    { name: 'Mela', price: 1, description: 'Mela rossa biologica' },
+    { name: 'Uova', price: 4, description: 'Confezione da 6 uova fresche' },
+    { name: 'Formaggio', price: 12, description: 'Formaggio stagionato 200g' },
+    { name: 'Pasta', price: 3, description: 'Pasta di semola di grano duro' },
+    { name: 'Tonno', price: 5, description: 'Scatoletta di tonno all’olio d’oliva' },
+    { name: 'Yogurt', price: 6, description: 'Yogurt bianco naturale' }
   ]
   
   selectedProduct = null;
