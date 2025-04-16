@@ -1,5 +1,5 @@
 <div class="card mt-4 border-1 rounded">
-  <ng-container *ngIf="product; else noProductSelected">
+  <ng-container *ngIf="product; else noProductSelected"> <!-- Verifica se esiste un prodotto selezionato -->
     <div class="card-header bg-primary text-white">
       <h2 class="card-title m-0">{{ product.name }}</h2>
     </div>
@@ -10,8 +10,8 @@
       <p><strong>Descrizione:</strong> {{ product.description }}</p>
     </div>
   </ng-container>
-
-  <ng-template #noProductSelected>
+  
+  <ng-template #noProductSelected> <!-- Contenuto mostrato se nessun prodotto è selezionato -->
     <div class="card-body text-center text-muted">
       <p>Seleziona un prodotto per vedere i dettagli.</p>
     </div>
